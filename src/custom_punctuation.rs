@@ -86,7 +86,7 @@ macro_rules! custom_punctuation {
         pub fn $ident<__S: $crate::export::IntoSpans<custom_punctuation_repr!($($tt)+)>>(
             spans: __S,
         ) -> $ident {
-            let _validate_len = 0 $(+ custom_punctuation_len!(strict, $tt))*;
+            let _validate_len = 0 $(+ custom_punctuation_len!(strict, $tt))+;
             $ident {
                 spans: $crate::export::IntoSpans::into_spans(spans)
             }
